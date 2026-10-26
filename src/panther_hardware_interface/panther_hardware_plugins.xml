@@ -1,0 +1,10 @@
+<library path="panther_hardware_interface">
+  <class
+    name="panther_hardware_interface/PantherHardwareInterface"
+    type="panther_hardware_interface::PantherHardwareInterface"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>
+      ROS2 ros2_control hardware interface for Panther motor drive.
+    </description>
+  </class>
+</library>

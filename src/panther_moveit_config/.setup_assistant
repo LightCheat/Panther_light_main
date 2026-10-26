@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: panther_description
+    relative_path: urdf/panther_description.urdf
+  srdf:
+    relative_path: config/panther_description.srdf
+  package_settings:
+    author_name: Light
+    author_email: 1067933575@qq.com
+    generated_timestamp: 1788252081
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

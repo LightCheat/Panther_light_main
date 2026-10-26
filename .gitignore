@@ -1,0 +1,17 @@
+# ROS / colcon build output
+/build/
+/install/
+/log/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local editor and agent settings
+/.vscode/
+/.agents/
+/.codex/
+
+# OS metadata
+.DS_Store
+Thumbs.db

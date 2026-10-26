@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panther_description">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import panther_description urdf file -->
+    <xacro:include filename="$(find panther_description)/urdf/panther_description.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="panther_description.ros2_control.xacro" />
+
+
+    <xacro:panther_description_ros2_control name="PantherSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

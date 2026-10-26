@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<!-- 电机相关参数在此设置 -->
+    <xacro:macro name="panther_description_ros2_control" params="name initial_positions_file">
+        <xacro:property name="initial_positions" value="${load_yaml(initial_positions_file)['initial_positions']}"/>
+
+        <ros2_control name="${name}" type="system">
+            <hardware>
+                <!-- 使用真实硬件接口，通过 USB2CAN 串口驱动达妙电机。 -->
+                <plugin>panther_hardware_interface/PantherHardwareInterface</plugin>
+                <param name="serial_port">/dev/ttyACM0</param>
+                <param name="baudrate">921600</param>
+            </hardware>
+            <joint name="joint1">
+                <command_interface name="position"/>
+                <command_interface name="velocity"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint1']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <param name="motor_type">DM4310</param>
+                <param name="slave_id">0x01</param>
+                <param name="master_id">0x11</param>
+                <param name="kp">50.0</param>
+                <param name="kd">0.8</param>
+                <param name="pos_vel_velocity">1.5</param>
+                <param name="min_position">-3.14</param>
+                <param name="max_position">3.14</param>
+            </joint>
+            <joint name="joint2">
+                <command_interface name="position"/>
+                <command_interface name="velocity"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint2']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <param name="motor_type">DM4340</param>
+                <param name="slave_id">0x02</param>
+                <param name="master_id">0x12</param>
+                <param name="kp">50.0</param>
+                <param name="kd">0.8</param>
+                <param name="pos_vel_velocity">1.5</param>
+                <param name="min_position">-3.14</param>
+                <param name="max_position">3.14</param>
+            </joint>
+            <joint name="joint3">
+                <command_interface name="position"/>
+                <command_interface name="velocity"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint3']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <param name="motor_type">DM4340</param>
+                <param name="slave_id">0x03</param>
+                <param name="master_id">0x13</param>
+                <param name="kp">50.0</param>
+                <param name="kd">0.8</param>
+                <param name="pos_vel_velocity">1.5</param>
+                <param name="min_position">-3.14</param>
+                <param name="max_position">3.14</param>
+            </joint>
+            <joint name="joint4">
+                <command_interface name="position"/>
+                <command_interface name="velocity"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint4']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <param name="motor_type">DM4340</param>
+                <param name="slave_id">0x04</param>
+                <param name="master_id">0x14</param>
+                <param name="kp">50.0</param>
+                <param name="kd">0.8</param>
+                <param name="pos_vel_velocity">1.5</param>
+                <param name="min_position">-3.14</param>
+                <param name="max_position">3.14</param>
+            </joint>
+            <joint name="joint5">
+                <command_interface name="position"/>
+                <command_interface name="velocity"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint5']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <param name="motor_type">DM4310</param>
+                <param name="slave_id">0x05</param>
+                <param name="master_id">0x15</param>
+                <param name="kp">50.0</param>
+                <param name="kd">0.8</param>
+                <param name="pos_vel_velocity">1.5</param>
+                <param name="min_position">-3.14</param>
+                <param name="max_position">3.14</param>
+            </joint>
+            <joint name="joint6">
+                <command_interface name="position"/>
+                <command_interface name="velocity"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint6']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <param name="motor_type">DM4310</param>
+                <param name="slave_id">0x06</param>
+                <param name="master_id">0x16</param>
+                <param name="kp">50.0</param>
+                <param name="kd">0.8</param>
+                <param name="pos_vel_velocity">1.5</param>
+                <param name="min_position">-3.14</param>
+                <param name="max_position">3.14</param>
+            </joint>
+
+        </ros2_control>
+    </xacro:macro>
+</robot>
